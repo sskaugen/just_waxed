@@ -3,10 +3,11 @@ import math
 #I would like every employee to have thier own instance of math maybe?
 #This is the Employee class which houses all the information about the employess
 class Employee:
-    def __init__(self, name, hourly_rate,commission,start_date,birth_date):
+    def __init__(self, name, hourly_rate,commission_services,commision_products,start_date,birth_date):
         self.__name = name
         self.__hourly_rate = hourly_rate
-        self.__commission = commission
+        self.__commission_services = commission_services
+        self.__commision_products = commision_products
         self.__start_date = datetime.strptime(start_date, '%B %d %Y')
         self.__birth_date = datetime.strptime(birth_date, '%B %d %Y')
         
@@ -15,16 +16,23 @@ class Employee:
     def get_hourly_rate(self):
         print("Current Hourly rate: " + str(self.__hourly_rate))
         return(self.__hourly_rate)
+    
     def get_name(self):
         print("Employee Name is: " + str(self.__name))
         return(self.__name)
-    def get_commission(self):
-        print("Current Commision Rate is: " + str(self.__commission))
-        return(self.__commission)
+    
+    def get_commission_services(self):
+        print("Current Commision Rate for services is: " + str(self.__commission_services))
+        return(self.__commission_services)
+    
+    def get_commission_products(self):
+        print("Current Commision Rate for products is: " + str(self.__commision_products))
+        return(self.__commision_products)
         
     def get_start_date(self):
         print("Current Start Date is Rate is: " + str(self.__start_date))
         return(self.__start_date)
+    
     def get_birth_date(self):
         print("Current Birth Date is: " + str(self.__birth_date))
         return(self.__birth_date)
