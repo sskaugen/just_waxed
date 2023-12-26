@@ -27,4 +27,6 @@ class mathlogic():
     def total_from_weekly_pay(self,employee,hours_worked):
         total_hourly_to_pay = Employee.get_hourly_rate(employee) * hours_worked
         return total_hourly_to_pay
+    
+    def final_weekly_pay(self):
         
