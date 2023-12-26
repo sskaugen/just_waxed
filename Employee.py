@@ -1,6 +1,6 @@
 from datetime import datetime
 import math
-
+#I would like every employee to have thier own instance of math maybe?
 #This is the Employee class which houses all the information about the employess
 class Employee:
     def __init__(self, name, hourly_rate,commission,start_date,birth_date):
@@ -9,23 +9,26 @@ class Employee:
         self.__commission = commission
         self.__start_date = datetime.strptime(start_date, '%B %d %Y')
         self.__birth_date = datetime.strptime(birth_date, '%B %d %Y')
+        
 
     #Getters for Private Variables
     def get_hourly_rate(self):
         print("Current Hourly rate: " + str(self.__hourly_rate))
-    
+        return(self.__hourly_rate)
     def get_name(self):
         print("Employee Name is: " + str(self.__name))
-    
+        return(self.__name)
     def get_commission(self):
         print("Current Commision Rate is: " + str(self.__commission))
+        return(self.__commission)
         
     def get_start_date(self):
         print("Current Start Date is Rate is: " + str(self.__start_date))
-        
+        return(self.__start_date)
     def get_birth_date(self):
         print("Current Birth Date is: " + str(self.__birth_date))
-        
+        return(self.__birth_date)
+    
     #setters for Private Variables
     def set_hourly_rate(self,new_hourly_rate):
         self.__hourly_rate = new_hourly_rate
@@ -55,23 +58,3 @@ class Employee:
         remaining_days = time_with_company.days % 365
 
         print("Current time with the Company is: {} Years and {} Days".format(time_with_company_years, remaining_days))
-       
-        
-        
-        
-emp_1 = Employee("Sean Skaugen", 16, .5, "december 15 2022","march 23 2001")
-
-emp_1.get_hourly_rate()
-emp_1.get_name()
-emp_1.get_commission()
-emp_1.get_start_date()
-emp_1.get_birth_date()
-print("----------------------------------------------")
-print()
-
-emp_1.set_hourly_rate(20)
-emp_1.set_name("Sean James")
-emp_1.set_commission(.75)
-#emp_1.set_start_date("june 02 2005")
-emp_1.set_birth_date("march 03 2001")
-emp_1.total_time_with_company()
