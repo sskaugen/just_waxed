@@ -6,6 +6,8 @@ def main():
     mathforemp1 = mathlogic()
     mathforemp1.total_made_commison_from_services(emp1,565.50)
     print(mathforemp1.total_made_commissom_from_products(emp1,100))
+    print()
+    print(mathforemp1.total_from_weekly_pay(emp1,10)) #expecting 150
 
 #I want to keep this change
 if __name__ == "__main__":
