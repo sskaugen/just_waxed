@@ -23,6 +23,23 @@ class CLI():
         return None
     
     @staticmethod
+    def handle_info_change(employee,choice):
+        if choice == n:
+            empname = input('Input New Name\n')
+            employee.set_name(empname)
+        elif choice == hr:
+            emphourly = input('Input New Hourly Wage\n')
+            employee.set_hourly_rate(emphourly)
+        elif choice == cs:
+            empcommissonservices = input('input New Commisson for Services\n')
+            employee.set_commission_services(empcommissonservices)
+        else:
+            empcommissonproducts = input('input new Commisson for Products\n')
+            employee.set_commission_products(empcommissonproducts)
+        return employee
+
+
+    @staticmethod
     def change_employee_info(employee_list):
         if len(employee_list) == 0:
             print('There are no employees. PLease create an employee first')
@@ -34,15 +51,15 @@ class CLI():
                     raise Exception("No employee was found Please re-enter name\n")
             else:
                 print(f'{status.get_name()} was found')
-            #if choice == 'yes':
-               # selection = input('\n\nwhat would you like to change?\nName (n)\nHourl Rate (hr)\nCommisson services (cs) \nCommisson products (cp)\n')
-   
+                selection = input('\n\nwhat would you like to change?\nName (n)\nHourl Rate (hr)\nCommisson services (cs) \nCommisson products (cp)\n')
+                print(selection)
+
     #this will hold the loop that will run the continous logic of this program
     def run():
         return None
 
 
-        
+#have to catch and handle my Exception
 cli = CLI()
 cli.Welcome()
 cli.create_employees()
