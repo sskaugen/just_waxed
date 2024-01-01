@@ -13,19 +13,29 @@ class CLI():
         
     @staticmethod
     def create_employees():
-        Employee.create_and_append_employee(CLI.Employeelist)
-        
+        Employee.create_and_append_employee(CLI.employeelist)
+    
+    @staticmethod
+    def search_for_employee(target_name):
+        for employee in CLI.employeelist:
+            if employee.get_name == target_name:
+                return employee
+        return None
     
     @staticmethod
     def change_employee_info(employee_list):
         if len(employee_list) == 0:
             print('There are no employees. PLease create an employee first')
         else:
-            info = input('what Employees info do you want to change?  ')
-            print(f'you have selected to changed: {info}')
-            choice = input('Is that correct? Input yes or no')
+            target_name = input('what Employees info do you want to change? ')
+            print(f"you have selected to change: {target_name}'s attributes")
+            for employee in employee_list:
+                if employee.get_name() == target_name:
+                    return employee
+
+            choice = input('Is that correct? Input yes or no\n')
             if choice == 'yes':
-                selection = input('what would you like to change?\nName (n)\nHourl Rate (hr)\nCommisson services (cs) \nCommisson products (cp)')
+                selection = input('\n\nwhat would you like to change?\nName (n)\nHourl Rate (hr)\nCommisson services (cs) \nCommisson products (cp)\n')
    
     #this will hold the loop that will run the continous logic of this program
     def run():
@@ -36,4 +46,4 @@ class CLI():
 cli = CLI()
 cli.Welcome()
 cli.create_employees()
-cli.change_employee_info(Employeelist)
+cli.change_employee_info(CLI.employeelist)
