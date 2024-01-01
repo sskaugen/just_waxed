@@ -22,6 +22,7 @@ class CLI():
                 return employee
         return None
     
+    #This method handles the 
     @staticmethod
     def handle_info_change(employee,choice):
         if choice == n:
@@ -33,9 +34,11 @@ class CLI():
         elif choice == cs:
             empcommissonservices = input('input New Commisson for Services\n')
             employee.set_commission_services(empcommissonservices)
-        else:
+        elif choice == cp:
             empcommissonproducts = input('input new Commisson for Products\n')
             employee.set_commission_products(empcommissonproducts)
+        else:
+            print('Nothing has been changed. Returning to starting page.')
         return employee
 
 
@@ -44,15 +47,22 @@ class CLI():
         if len(employee_list) == 0:
             print('There are no employees. PLease create an employee first')
         else:
-            target_name = input('what Employees info do you want to change? ')
+            target_name = input("what Employee's info would you like to change? ")
             print(f"you have selected to change: {target_name}'s attributes")
-            status = cli.search_for_employee(target_name)
-            if status == None:
-                    raise Exception("No employee was found Please re-enter name\n")
+            status = CLI.search_for_employee(target_name)
+            while status == None:
+                   status = input('No employee by that name please re-enter name: ')
+                
             else:
                 print(f'{status.get_name()} was found')
-                selection = input('\n\nwhat would you like to change?\nName (n)\nHourl Rate (hr)\nCommisson services (cs) \nCommisson products (cp)\n')
-                print(selection)
+                selection = input('\n\nwhat would you like to change?\nName (n)\nHourly Rate (hr)\nCommisson services (cs) \nCommisson products (cp)\n')
+                selection_lower_case = selection.lower()
+                while selection != n or hr or cs or cp:
+                    print('invalid command insert a proper command\n Change name (n)\nChange Hourly Rate (hr)\nChange Commisson Services (cs)\nChange Commission Products (cp)\n')
+                    selection = input('Input Proper Command Here: ')
+                
+                
+                        
 
     #this will hold the loop that will run the continous logic of this program
     def run():
