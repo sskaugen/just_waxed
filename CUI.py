@@ -18,7 +18,7 @@ class CLI():
     @staticmethod
     def search_for_employee(target_name):
         for employee in CLI.employeelist:
-            if employee.get_name == target_name:
+            if employee.get_name() == target_name:
                 return employee
         return None
     
@@ -29,13 +29,13 @@ class CLI():
         else:
             target_name = input('what Employees info do you want to change? ')
             print(f"you have selected to change: {target_name}'s attributes")
-            for employee in employee_list:
-                if employee.get_name() == target_name:
-                    return employee
-
-            choice = input('Is that correct? Input yes or no\n')
-            if choice == 'yes':
-                selection = input('\n\nwhat would you like to change?\nName (n)\nHourl Rate (hr)\nCommisson services (cs) \nCommisson products (cp)\n')
+            status = cli.search_for_employee(target_name)
+            if status == None:
+                    raise Exception("No employee was found Please re-enter name\n")
+            else:
+                print(f'{status.get_name()} was found')
+            #if choice == 'yes':
+               # selection = input('\n\nwhat would you like to change?\nName (n)\nHourl Rate (hr)\nCommisson services (cs) \nCommisson products (cp)\n')
    
     #this will hold the loop that will run the continous logic of this program
     def run():
