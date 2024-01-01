@@ -10,6 +10,16 @@ class Employee:
         self.__commision_products = self.set_commission_products(commission_products)
         self.math_module = mathlogic()
     
+    @classmethod
+    def create_and_append_employee(cls,employeelist):
+        name = input('Input your Employees Name: ')
+        hourly = float(input('Input hourly rate: '))
+        commisson_services = float(input('Input Commisson for Services: '))
+        commisson_products = float(input('Input Commisson for products: '))
+        newEmployee = cls(name,hourly,commisson_services,commisson_products)
+        employeelist.append(newEmployee)
+        return(newEmployee)
+
     def __str__(self):
         return f"Employee: name={self.get_name()}, Hourly_Rate={self.get_hourly_rate()},Commisson_services={self.get_commission_services()},Commisson_Products={self.get_commission_products()}"    
 
